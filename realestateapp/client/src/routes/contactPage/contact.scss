@@ -1,0 +1,113 @@
+$primary-color: #4a90e2;
+$secondary-color: #f5f5f5;
+$text-color: #333;
+$heading-color: #222;
+$padding: 20px;
+$margin: 20px;
+$border-radius: 8px;
+$input-height: 40px;
+$textarea-height: 100px;
+
+@mixin container() {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.contact-section {
+  background-color: $secondary-color;
+  padding: $padding;
+  margin: 10px 0px;
+  height: calc(100vh - 100px);
+
+  .container {
+    @include container();
+  }
+
+  h1,
+  h2 {
+    color: $heading-color;
+    margin-bottom: $margin;
+  }
+
+  p {
+    color: $text-color;
+    line-height: 1.6;
+    margin-bottom: $margin;
+  }
+
+  .contact-info {
+    margin-bottom: $margin;
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+
+      li {
+        color: $text-color;
+        margin-bottom: 10px;
+
+        a {
+          color: $primary-color;
+          text-decoration: none;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+
+  .contact-form {
+    form {
+      display: flex;
+      flex-direction: column;
+
+      label {
+        margin-bottom: 5px;
+        color: $heading-color;
+      }
+
+      input,
+      textarea {
+        border: 1px solid #ddd;
+        border-radius: $border-radius;
+        padding: 10px;
+        margin-bottom: $margin;
+        color: $text-color;
+      }
+
+      input {
+        height: $input-height;
+      }
+
+      textarea {
+        height: $textarea-height;
+        resize: vertical;
+      }
+
+      button {
+        background-color: $primary-color;
+        color: #fff;
+        border: none;
+        border-radius: $border-radius;
+        padding: 10px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: darken($primary-color, 10%);
+        }
+      }
+
+      .status {
+        margin-top: $margin;
+        color: $primary-color;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      width: 90%;
+    }
+  }
+}
